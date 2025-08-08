@@ -1,7 +1,6 @@
 import { RuleProperties, TopLevelCondition } from 'json-rules-engine';
 import { StyleObject } from './styles';
 import { LabelObject } from './labels';
-import { LabelObject } from './labels';
 
 export interface Fact {
   value: string;
