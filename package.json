@@ -1,0 +1,60 @@
+{
+  "name": "react-rules",
+  "version": "0.0.0-semantic-release",
+  "private": false,
+  "keywords": [
+    "react",
+    "rules-engine",
+    "json-rules-engine",
+    "react-component"
+  ],
+  "author": "Rafal Enden",
+  "license": "MIT",
+  "description": "A React component for building and managing business rules with json-rules-engine.",
+  "main": "./dist/react-rules.umd.cjs",
+  "module": "./dist/react-rules.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/react-rules.js",
+      "require": "./dist/react-rules.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest --root ."
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "json-rules-engine": "^7.3.1"
+  },
+  "devDependencies": {
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/github": "^11.0.3",
+    "@semantic-release/npm": "^12.0.2",
+    "@semantic-release/release-notes-generator": "^14.0.3",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.2.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.6.2",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "semantic-release": "^24.2.7",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.6.3",
+    "vitest": "^3.2.4"
+  }
+}
