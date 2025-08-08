@@ -29,6 +29,7 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'react-rules',
       fileName: 'react-rules',
+      formats: ['es', 'umd'],
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime'],
@@ -37,6 +38,8 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
         },
+        exports: 'named',
+        preserveModules: false
       },
     },
   },

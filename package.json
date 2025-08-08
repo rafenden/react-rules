@@ -17,7 +17,8 @@
   "exports": {
     ".": {
       "import": "./dist/react-rules.js",
-      "require": "./dist/react-rules.umd.cjs"
+      "require": "./dist/react-rules.umd.cjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [
