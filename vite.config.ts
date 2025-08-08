@@ -39,7 +39,7 @@ export default defineConfig({
           'react-dom': 'ReactDOM',
         },
         exports: 'named',
-        preserveModules: false
+        preserveModules: false,
       },
     },
   },
