@@ -1,6 +1,6 @@
 # React Rules
 
-A flexible React component for building and managing business rules with `json-rules-engine`.
+A flexible React component for building and managing business rules with [json-rules-engine](https://github.com/CacheControl/json-rules-engine/tree/master).
 
 ![Screenshot](./demo/screenshot.png)
 
