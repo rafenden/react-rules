@@ -1,134 +1,14 @@
 import React from 'react';
 import { TopLevelCondition } from 'json-rules-engine';
-import RulesSelect from './RulesSelect';
-import RuleTester from './RuleTester';
 import { defaultStyles } from './styles';
 import { defaultLabels } from '../labels';
-import { RuleEditorProps, Path, ConditionProps, GroupProps } from '../types';
+import { RuleEditorProps, Path } from '../types';
 import { useRules } from '../hooks/useRules';
-
-const parseRuleValue = (value: string) => {
-  if (
-    value &&
-    value.indexOf('.') !== value.length - 1 &&
-    !isNaN(Number(value))
-  ) {
-    return parseFloat(value);
-  }
-  return value;
-};
-
-const Condition: React.FC<ConditionProps> = ({
-  ruleIndex,
-  conditionOrGroup,
-  path,
-  onUpdateCondition,
-  onDeleteCondition,
-  facts,
-  operators,
-  styles,
-  labels,
-}) => {
-  const { fact, operator, value } = conditionOrGroup;
-  return (
-    <fieldset style={styles.group}>
-      <legend style={styles.groupLabel}>{labels?.conditionLabel}</legend>
-      <RulesSelect
-        style={styles.select}
-        value={fact}
-        onChange={(option) =>
-          onUpdateCondition(ruleIndex, path, {
-            ...conditionOrGroup,
-            fact: option.value,
-          })
-        }
-        options={facts}
-      />
-      <RulesSelect
-        style={styles.select}
-        value={operator}
-        onChange={(option) =>
-          onUpdateCondition(ruleIndex, path, {
-            ...conditionOrGroup,
-            operator: option.value,
-          })
-        }
-        options={operators}
-      />
-      <input
-        style={styles.input}
-        placeholder={labels?.conditionValuePlaceholder}
-        onChange={(e) =>
-          onUpdateCondition(ruleIndex, path, {
-            ...conditionOrGroup,
-            value: parseRuleValue(e.target.value),
-          })
-        }
-        value={value || ''}
-      />
-      <button
-        onClick={() => onDeleteCondition(ruleIndex, path)}
-        style={styles.button}
-      >
-        {labels?.deleteCondition}
-      </button>
-    </fieldset>
-  );
-};
-
-const Group: React.FC<GroupProps> = ({
-  ruleIndex,
-  condition,
-  path,
-  renderConditions,
-  onAddCondition,
-  onAddGroup,
-  onDeleteGroup,
-  styles,
-  labels,
-}) => {
-  const colors = [
-    '#F4A261',
-    '#7ad761',
-    '#A8DADC',
-    '#e1bd1f',
-    '#1D3557',
-    '#E76F51',
-    '#2A9D8F',
-    '#264653',
-    '#E9C46A',
-    '#E63946',
-  ];
-  const borderColor = colors[path.length - 1];
-
-  return (
-    <fieldset style={{ ...styles.group, border: `1px solid ${borderColor}` }}>
-      <legend style={styles.groupLabel}>{labels?.groupPrefix}</legend>
-      {renderConditions(ruleIndex, condition, path)}
-
-      <div style={styles.groupActions}>
-        <button
-          onClick={() => onAddCondition(ruleIndex, path)}
-          style={styles.button}
-        >
-          {labels?.addCondition}
-        </button>
-        <button
-          onClick={() => onAddGroup(ruleIndex, path)}
-          style={styles.button}
-        >
-          {labels?.addGroup}
-        </button>
-        <button
-          onClick={() => onDeleteGroup(ruleIndex, path)}
-          style={styles.button}
-        >
-          {labels?.deleteGroup}
-        </button>
-      </div>
-    </fieldset>
-  );
-};
+import RulesSelect from './RulesSelect';
+import RuleTester from './RuleTester';
+import RuleCondition from './RuleCondition';
+import RuleGroup from './RuleGroup';
+import { parseRuleValue } from '../utils';
 
 const RuleEditor: React.FC<RuleEditorProps> = ({
   value,
@@ -190,7 +70,7 @@ const RuleEditor: React.FC<RuleEditorProps> = ({
                 const newPath: any = [...path, index];
                 if (conditionOrGroup.all || conditionOrGroup.any) {
                   return (
-                    <Group
+                    <RuleGroup
                       labels={labels}
                       key={newPath.join('.')}
                       ruleIndex={ruleIndex}
@@ -205,7 +85,7 @@ const RuleEditor: React.FC<RuleEditorProps> = ({
                   );
                 } else {
                   return (
-                    <Condition
+                    <RuleCondition
                       labels={labels}
                       key={newPath.join('.')}
                       ruleIndex={ruleIndex}

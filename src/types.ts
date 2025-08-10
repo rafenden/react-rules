@@ -17,7 +17,7 @@ export interface Event {
   label: string;
 }
 
-export interface ConditionProperties {
+export interface Condition {
   fact: string;
   operator: string;
   value: { fact: string } | any;
@@ -58,7 +58,7 @@ export interface RulesSelectProps {
   options: { label: string; value: string; isDisabled?: boolean }[];
 }
 
-export interface GroupProps {
+export interface RuleGroupProps {
   ruleIndex: number;
   condition: TopLevelCondition;
   path: Path;
@@ -74,14 +74,14 @@ export interface GroupProps {
   labels?: LabelObject;
 }
 
-export interface ConditionProps {
+export interface RuleConditionProps {
   ruleIndex: number;
-  conditionOrGroup: ConditionProperties;
+  conditionOrGroup: Condition;
   path: Path;
   onUpdateCondition: (
     ruleIndex: number,
     path: Path,
-    updatedCondition: ConditionProperties,
+    updatedCondition: Condition,
   ) => void;
   onDeleteCondition: (ruleIndex: number, path: Path) => void;
   facts: Fact[];

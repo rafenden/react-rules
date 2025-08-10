@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { RuleProperties, TopLevelCondition } from 'json-rules-engine';
-import { ConditionProperties, Fact, Operator, Event, Path } from '../types';
+import { Condition, Fact, Operator, Event, Path } from '../types';
 
 export interface UseRulesProps {
   initialValue?: string;
@@ -17,7 +17,7 @@ export const useRules = ({
   operators,
   events,
 }: UseRulesProps) => {
-  const emptyCondition: ConditionProperties = {
+  const emptyCondition: Condition = {
     fact: facts[0]?.value || '',
     operator: operators[0]?.value || '',
     value: '',
@@ -87,7 +87,7 @@ export const useRules = ({
   const updateCondition = (
     ruleIndex: number,
     path: Path,
-    updatedCondition: ConditionProperties,
+    updatedCondition: Condition,
   ): void => {
     const newRules = [...rules];
     const currentRule = newRules[ruleIndex];
