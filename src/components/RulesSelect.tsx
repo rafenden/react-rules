@@ -1,5 +1,5 @@
 import React from 'react';
-import { RulesSelectProps } from './types';
+import { RulesSelectProps } from '../types';
 
 const RulesSelect: React.FC<RulesSelectProps> = ({
   placeholder,

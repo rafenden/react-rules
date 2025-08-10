@@ -6,17 +6,16 @@ export const defaultStyles = {
     marginBottom: '20px',
   },
   ruleHeader: {
-    color: 'gray',
-    textTransform: 'uppercase' as const,
     fontWeight: 'bold',
     marginBottom: '20px',
   },
   select: {
-    width: '300px',
-    paddingRight: '10px',
+    maxWidth: '200px',
+    marginRight: '10px',
   },
   input: {
-    width: '200px',
+    maxWidth: '200px',
+    marginRight: '10px',
   },
   button: {
     marginRight: '10px',
@@ -24,30 +23,22 @@ export const defaultStyles = {
   conditionsContainer: {
     marginBottom: '10px',
   },
-  condition: {
-    display: 'flex',
-    gap: '5px',
-    alignItems: 'center',
-    margin: '10px 0',
-  },
-  event: {
-    display: 'flex',
-    gap: '5px',
-    alignItems: 'center',
-    margin: '10px 0',
-    border: '1px solid #ccc',
-    padding: '10px',
-  },
-  group: {
-    padding: '10px',
-    border: '1px solid #ccc',
-    margin: '5px 0',
-  },
   testRulesContainer: {
     margin: '20px 0',
   },
   summary: {
     cursor: 'pointer',
+  },
+  group: {
+    border: '1px solid #ccc',
+    margin: '15px 0',
+  },
+  groupActions: {
+    display: 'flex',
+    width: '100%',
+  },
+  groupLabel: {
+    fontWeight: 'bold',
   },
 };
 

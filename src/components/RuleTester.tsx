@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Engine } from 'json-rules-engine';
-import { RuleTesterProps, TestFacts } from './types';
+import { RuleTesterProps, TestFacts } from '../types';
 import { defaultStyles } from './styles';
 
 const RuleTester: React.FC<RuleTesterProps> = ({

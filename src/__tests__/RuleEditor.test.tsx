@@ -49,7 +49,7 @@ describe('RuleEditor', () => {
     expect(
       screen.getByText(
         (content, element) =>
-          content.startsWith('Rule #') &&
+          content.startsWith('Rule 1') &&
           element?.tagName.toLowerCase() === 'header',
       ),
     ).toBeInTheDocument();

@@ -9,10 +9,8 @@ export const defaultLabels = {
   rulePrefix: 'Rule',
   conditionValuePlaceholder: 'Condition value',
   eventValuePlaceholder: 'Event value',
+  conditionLabel: 'Condition',
   eventLabel: 'Event',
-  ifLabel: 'IF',
-  isLabel: 'IS',
-  thenLabel: 'THEN',
   requireAllConditions: 'Require ALL conditions to pass',
   requireAnyConditions: 'Require ANY condition to pass',
 };

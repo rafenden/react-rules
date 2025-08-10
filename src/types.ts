@@ -1,5 +1,5 @@
 import { RuleProperties, TopLevelCondition } from 'json-rules-engine';
-import { StyleObject } from './styles';
+import { StyleObject } from './components/styles';
 import { LabelObject } from './labels';
 
 export interface Fact {
