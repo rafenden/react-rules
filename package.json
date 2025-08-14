@@ -11,6 +11,10 @@
   "author": "Rafal Enden",
   "license": "MIT",
   "description": "A React component for building and managing business rules with json-rules-engine.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafenden/react-rules.git"
+  },
   "main": "./dist/react-rules.umd.js",
   "module": "./dist/react-rules.mjs",
   "types": "./dist/index.d.ts",
