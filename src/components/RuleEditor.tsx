@@ -18,6 +18,8 @@ const RuleEditor: React.FC<RuleEditorProps> = ({
   facts,
   operators,
   events,
+  engine,
+  showRuleTester = true,
 }) => {
   const styles = { ...defaultStyles, ...customStyles };
   const labels = { ...defaultLabels, ...customLabels };
@@ -162,8 +164,13 @@ const RuleEditor: React.FC<RuleEditorProps> = ({
         {labels.addRule}
       </button>
 
-      {rules.length > 0 && (
-        <RuleTester rules={rules} styles={styles} facts={facts} />
+      {rules.length > 0 && showRuleTester && (
+        <RuleTester
+          rules={rules}
+          styles={styles}
+          facts={facts}
+          engine={engine}
+        />
       )}
     </div>
   );

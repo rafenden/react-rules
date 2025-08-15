@@ -7,6 +7,7 @@ const RuleTester: React.FC<RuleTesterProps> = ({
   rules,
   styles: customStyles = {},
   facts,
+  engine,
 }) => {
   const styles = { ...defaultStyles, ...customStyles };
 
@@ -20,9 +21,9 @@ const RuleTester: React.FC<RuleTesterProps> = ({
   const [testFactsResult, setTestFactsResult] = useState<String | null>(null);
 
   const testRule = (): void => {
-    const engine = new Engine();
-    rules.forEach((rule) => engine.addRule(rule));
-    engine
+    const ruleEngine = engine || new Engine();
+    rules.forEach((rule) => ruleEngine.addRule(rule));
+    ruleEngine
       .run(testFacts)
       .then(({ events }) => {
         setTestFactsResult(JSON.stringify(events, null, 2));

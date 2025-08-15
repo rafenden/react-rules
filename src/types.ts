@@ -1,4 +1,4 @@
-import { RuleProperties, TopLevelCondition } from 'json-rules-engine';
+import { RuleProperties, TopLevelCondition, Engine } from 'json-rules-engine';
 import { StyleObject } from './components/styles';
 import { LabelObject } from './labels';
 
@@ -40,6 +40,8 @@ export interface RuleEditorProps {
   facts: Fact[];
   operators: Operator[];
   events: Event[];
+  engine?: Engine;
+  showRuleTester?: boolean;
 }
 
 export interface RuleTesterProps {
@@ -47,6 +49,7 @@ export interface RuleTesterProps {
   styles?: Partial<StyleObject>;
   labels?: LabelObject;
   facts: Fact[];
+  engine?: Engine;
 }
 
 export interface RulesSelectProps {
